@@ -21,6 +21,9 @@ Complete the TODO sections to finish the implementation.
 # Task 1: Base Animal Class
 # =============================================================================
 
+from unittest import case
+
+
 class Animal:
     """Base class for all animals in the shelter."""
     
@@ -241,21 +244,35 @@ class Shelter:
         self.animals.append(animal)
         return f"{animal.name} has been added to {self.name}"
     
+    # self made function to remove animal for the interactive menu
+    def remove_animal(self, name):
+        """Remove an animal from the shelter by name."""
+        animal = self.find_by_name(name)
+        if animal:
+            self.animals.remove(animal)
+            return f"{animal.name} has been removed from {self.name}"
+        return f"No animal named {name} found in {self.name}."
+    
+
     def find_by_name(self, name):
         """Find an animal by name."""
-        # TODO: Loop through animals and return one with matching name
-        # TODO: Return None if not found
-        pass
+
+        # loop through animals in the shelter (self.animals) and returns the animal that matches the name, if no match, returns None, case insensitive
+        # assumes names are unique?
+        for animal in self.animals:
+            if animal.name.lower() == name.lower(): # Match found
+                return animal
+        return None # No match
     
     def list_available(self):
         """List all animals available for adoption."""
-        # TODO: Return list of animals where is_adopted() is False
-        pass
-    
+        # Returns a list of animals where is_adopted() is False
+        return [animal for animal in self.animals if not animal.is_adopted()]
+      
     def list_by_species(self, species):
         """List all animals of a specific species."""
-        # TODO: Filter self.animals by species
-        pass
+        # Filters self.animals by species; case insensitive; return the list
+        return [animal for animal in self.animals if animal.species.lower() == species.lower()]
     
     def adopt_animal(self, name):
         """Adopt an animal by name."""
@@ -302,7 +319,7 @@ class Shelter:
 # Task 5: Demonstration
 # =============================================================================
 
-def main():
+def test_functionality():
     """Demonstrate the pet shelter system."""
     
     # Create shelter
@@ -311,9 +328,13 @@ def main():
     # Add various animals (using completed classes)
     shelter.add_animal(Dog("Buddy", 3, "Golden Retriever", True))
     # TODO: Add a Cat
+    shelter.add_animal(Cat("Maya", 5, "Maine Coon", True))
     # TODO: Add a Puppy
+    shelter.add_animal(Puppy("Rex", .5, "Labrador"))
     # TODO: Add a ServiceDog
+    shelter.add_animal(ServiceDog("Rocky", 5, "German Shepherd", "guide-dog"))
     # TODO: Add a Kitten
+    shelter.add_animal(Kitten("Nala", 7, "Calico"))
     
     # Display all animals
     shelter.display_all()
@@ -337,5 +358,119 @@ def main():
     print(f"  By Species: {stats['by_species']}")
 
 
+def display_manu():
+    print( f"""
+--- Welcome to the Pet Shelter Management System ---
+1. add animal to shelter
+2. delete animal from shelter
+3. list all animals in shelter
+4. list all animals by species
+5. list available animals for adoption
+6. adopt an animal
+7. make all animals speak
+8. show shelter statistics
+9. export shelter data
+0. exit
+----------------------------------------------------
+""")
+#
+# Function to create an animal based on user input, code is long because we need to take into account multiple constructors and parameters
+#
+def make_animal(name, age, species):
+    match species:
+        case "Dog":
+            breed = input("Enter dog breed: ")
+            is_trained = input("Is the dog trained? (yes/no): ") == "yes"
+            return Dog(name, age, breed, is_trained)
+        case "Cat":
+            color = input("Enter cat color/pattern: ")
+            is_indoor = input("Is the cat indoor-only? (yes/no): ") == "yes"
+            return Cat(name, age, color, is_indoor)
+        case "Puppy":
+            breed = input("Enter puppy breed: ")
+            return Puppy(name, age * 12, breed)  # Convert years to months
+        case "ServiceDog":
+            breed = input("Enter service dog breed: ")
+            service_type = input("Enter service type (e.g., guide, therapy): ")
+            return ServiceDog(name, age, breed, service_type)
+        case "Kitten":
+            color = input("Enter kitten color/pattern: ")
+            return Kitten(name, age * 12, color)  # Convert years to months
+        case _:
+            print("Unknown species, cannot create animal.")
+            return None
+
+def pretty_print_animals(animals):
+    for animal in animals:
+        print(f"    -{animal.describe()}")
+
+def main():
+    shelter = Shelter("Happy Paws Rescue 2")
+    # Main function; will be used as interactive menu for users to manager shelter
+    while True: # main loop
+        display_manu
+        user_input = input("Enter Command >")
+        match user_input:
+            case "1":
+                # add animal to shelter
+                name = input("Enter animal name: ")
+                age = float(input("Enter animal age (in years, enter months as decimals): "))
+                species = input("Enter animal species (e.g., Dog, Cat; case-sensitive): ")
+                animal = make_animal(name, age, species)
+                if animal: # check to see if any errors in creating animal
+                    shelter.add_animal(animal)
+                    print("successfully added to shelter")
+                else:
+                    print("Error try again...")
+                    continue
+                
+            case "2":
+                # delete animal from shelter
+                name = input("Enter the name of the animal to remove: ")
+                result = shelter.remove_animal(name)
+                print(result)
+            case "3":
+                # list all animals in shelter
+                shelter.display_all
+            case "4":   
+                # list all animals by species
+                species = input("Enter species to filter by (e.g., Dog, Cat; case-sensitive): ")
+                animals = shelter.list_by_species(species)
+                print(f"Animals of species {species}:")
+                pretty_print_animals(animals)
+            case "5":
+                # list available animals for adoption
+                available_animals = shelter.list_available()
+                print("Available animals for adoption:")
+                pretty_print_animals(available_animals)
+            case "6":
+                # adopt an animal
+                name = input("Enter the name of the animal to adopt: ")
+                result = shelter.adopt_animal(name)
+                print(result)
+            case "7":
+                # make all animals speak
+                shelter.make_all_speak()
+            case "8":
+                # show shelter statistics, copied from old test function
+                stats = shelter.get_statistics()
+                print(f"\n--- Shelter Statistics ---")
+                print(f"  Total: {stats['total']}")
+                print(f"  Available: {stats['available']}")
+                print(f"  Adopted: {stats['adopted']}")
+                print(f"  By Species: {stats['by_species']}")
+            case "9":
+                # export shelter data
+                pass
+            case "0":
+                print("Shutting down program...")
+                break
+            case _:
+                print("Invalid command, try again...")
+    
+    
+    
+
+
 if __name__ == "__main__":
-    main()
+    test_functionality()
