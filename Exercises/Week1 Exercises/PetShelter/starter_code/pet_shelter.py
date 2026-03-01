@@ -112,15 +112,14 @@ class Cat(Animal):
             color: Cat's color/pattern
             is_indoor: Whether the cat is indoor-only
         """
-        # TODO: Call parent constructor with species="Cat"
-        # TODO: Set self.color
-        # TODO: Set self.is_indoor
-        pass
-    
+        # calls parent constructor for name and age, sets color and indoor status afterward
+        super().__init__(name, age, "Cat")
+        self.color = color
+        self.is_indoor = is_indoor
+
     def speak(self):
         """Cats meow."""
-        # TODO: Return "{name} says Meow!"
-        pass
+        return f"{self.name} says Meow!"
     
     def scratch(self):
         """Cats scratch."""
@@ -128,9 +127,10 @@ class Cat(Animal):
     
     def describe(self):
         """Override to include color and indoor status."""
-        # TODO: Get base description from parent
-        # TODO: Add color and indoor/outdoor status
-        pass
+        # gets base description using super() parent class "Animal" then returns a string with color and indoor/outdoor status
+        base_descriptor = super().describe()
+        indoor_status = "indoor" if self.is_indoor else "outdoor"
+        return f"{base_descriptor} - {self.color} {indoor_status} cat"
 
 
 # =============================================================================
@@ -177,19 +177,20 @@ class ServiceDog(Dog):
             breed: Dog breed
             service_type: Type of service (e.g., "guide", "therapy", "search")
         """
-        # TODO: Call parent constructor with is_trained=True
-        # TODO: Set self.service_type
-        pass
+        # calls parent (dog) constructor with is_trained = true as per requiremnents, then sets service_type
+        super().__init__(name, age, breed, is_trained=True)
+        self.service_type = service_type
     
     def perform_service(self):
         """Perform the dog's service."""
-        # TODO: Return "{name} performs {service_type} duties."
-        pass
+        # Return "{name} performs {service_type} duties."
+        return f"{self.name} performs {self.service_type} duties."
     
     def describe(self):
         """Include service type in description."""
-        # TODO: Get base description and add service type
-        pass
+        # Gets base description and add service type
+        base = super().describe()
+        return f"{base} - Service Type: {self.service_type}"
 
 
 class Kitten(Cat):
@@ -204,20 +205,23 @@ class Kitten(Cat):
             age_months: Age in months
             color: Kitten's color/pattern
         """
-        # TODO: Convert months to years
-        # TODO: Call parent constructor
-        # TODO: Store age_months
-        pass
+        # Convert months to years
+        age_years = age_months / 12
+        # Store age_months
+        self.age_months = age_months
+        # calls parent constructor (Cat)
+        super().__init__(name, age_years, color, is_indoor=False)
     
     def speak(self):
         """Kittens mew."""
-        # TODO: Return "{name} says Mew! Mew!"
-        pass
+        # Returns "{name} says Mew! Mew!"
+        return f"{self.name} says Mew! Mew!"
     
     def describe(self):
         """Show age in months for kittens."""
-        # TODO: Similar to Puppy.describe()
-        pass
+        # Similar to Puppy.describe()
+        status = "adopted" if self._adopted else "available"
+        return f"{self.name} is a {self.age_months}-month-old {self.color} kitten ({status})"
 
 
 # =============================================================================
