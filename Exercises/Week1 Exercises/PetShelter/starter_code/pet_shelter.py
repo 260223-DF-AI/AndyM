@@ -406,9 +406,15 @@ def pretty_print_animals(animals):
 
 def main():
     shelter = Shelter("Happy Paws Rescue 2")
+    # Add various animals (using completed classes)
+    shelter.add_animal(Dog("Buddy", 3, "Golden Retriever", True))
+    shelter.add_animal(Cat("Maya", 5, "Maine Coon", True))
+    shelter.add_animal(Puppy("Rex", .5, "Labrador"))
+    shelter.add_animal(ServiceDog("Rocky", 5, "German Shepherd", "guide-dog"))
+    shelter.add_animal(Kitten("Nala", 7, "Calico"))
     # Main function; will be used as interactive menu for users to manager shelter
     while True: # main loop
-        display_manu
+        display_manu()
         user_input = input("Enter Command >")
         match user_input:
             case "1":
@@ -431,7 +437,7 @@ def main():
                 print(result)
             case "3":
                 # list all animals in shelter
-                shelter.display_all
+                shelter.display_all()
             case "4":   
                 # list all animals by species
                 species = input("Enter species to filter by (e.g., Dog, Cat; case-sensitive): ")
@@ -461,7 +467,8 @@ def main():
                 print(f"  By Species: {stats['by_species']}")
             case "9":
                 # export shelter data
-                pass
+                file_name = input("Enter filename to export data: ")
+                print("not implemented yet, try again letr..")
             case "0":
                 print("Shutting down program...")
                 break
@@ -473,4 +480,5 @@ def main():
 
 
 if __name__ == "__main__":
-    test_functionality()
+    #test_functionality()
+    main()
