@@ -468,7 +468,16 @@ def main():
             case "9":
                 # export shelter data
                 file_name = input("Enter filename to export data: ")
-                print("not implemented yet, try again letr..")
+                try:
+                    with open(file_name, "w") as file:
+                        file.write("Shelter Name: " + shelter.name + "\n")
+                        for animal in shelter.animals:
+                            file.write(animal.describe() + "\n")
+                    
+                    print("sucessfully exported shelter data to :",file_name)
+                except Exception as e:
+                    print("error has occured exporting your file...")
+
             case "0":
                 print("Shutting down program...")
                 break
