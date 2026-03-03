@@ -9,7 +9,7 @@ def log_it(text, level):
     from datetime import datetime
     timestamp = datetime.now()
     with open(LOG_FILE, "a") as f:
-        f.write(f"<{timestamp}> [{level}]: + {text}")
+        f.write(f"<{timestamp}> [{level}]: + {text}" + "\n")
 
 
 class FileProcessingError(Exception):
@@ -26,6 +26,6 @@ class InvalidDataError(FileProcessingError):
 
 class MissingFieldError(FileProcessingError):
     """Raised when a required field is missing."""
-    def __init__(self, field):
-        log_it(f"required {field} is missing", ERROR)
+    def __init__(self):
+        log_it("required field is missing", ERROR)
         raise RuntimeError()
