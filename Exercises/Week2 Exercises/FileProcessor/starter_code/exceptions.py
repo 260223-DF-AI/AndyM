@@ -3,6 +3,7 @@
 LOG_FILE = "log.txt"
 ERROR = "ERROR"
 INFO = "INFO"
+WARNING = "WARNING"
 
 def log_it(text, level):
     from datetime import datetime
