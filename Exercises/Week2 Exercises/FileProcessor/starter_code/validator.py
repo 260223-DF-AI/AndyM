@@ -1,6 +1,6 @@
 """Code to validate the CSV input"""
 import re
-from exceptions import *
+from .exceptions import *
 
 # regex generator to generate valid date matcher
 VALID_DATE = r"\d{4}-\d{2}-\d{2}"

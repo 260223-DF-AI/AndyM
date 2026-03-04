@@ -1,5 +1,5 @@
 """Main file to read a csv file and generate report"""
-from exceptions import *
+from .exceptions import *
 import os
 
 def read_csv_file(filepath):
