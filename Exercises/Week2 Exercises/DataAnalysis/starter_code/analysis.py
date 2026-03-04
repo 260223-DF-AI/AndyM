@@ -104,18 +104,124 @@ def add_time_features(df):
     return df
 
 
+def sales_by_category(df):
+    """
+    Calculate total sales and order count by category.
+    Returns: DataFrame with columns [category, total_sales, order_count, avg_order_value]
+    Sorted by total_sales descending.
+    """
+    categories = df.groupby("category") # groupby object that I act on (seperates into categories)
+    total_sales = categories["quantity"].sum() # gets sum of quantity
+    order_count = categories.size() # counts length of each group after groupby
+    avg_order_amt = categories["unit_price"].mean() # gets mean unit_price
+    #print(list(categories.groups.keys()))
+    salesdata = {
+        "category":list(categories.groups.keys()),
+        "total_sales": list(total_sales),
+        "order_count": list(order_count),
+        "avg_order_value":list(avg_order_amt)
+
+    }
+    return pd.DataFrame(salesdata)
+
+    
+
+def sales_by_region(df):
+    """
+    Calculate total sales by region.
+    Returns: DataFrame with columns [region, total_sales, percentage_of_total]
+    """
+    # same structure as sales_by_category except we group by region
+    
+    # this is still called categories because its the same code, its actually regions
+    categories = df.groupby("region") # groupby object that I act on (seperates into REGIONS)
+    total_sales = categories["quantity"].sum() # gets sum of quantity
+    order_count = categories.size() # counts length of each group after groupby
+    avg_order_amt = categories["unit_price"].mean() # gets mean unit_price
+    #print("TEST",categories["unit_price"].mean())
+    #print(list(categories.groups.keys()))
+    salesdata = {
+        "region":list(categories.groups.keys()),
+        "total_sales": list(total_sales),
+        "order_count": list(order_count),
+        "avg_order_value":list(avg_order_amt)
+
+    }
+    return pd.DataFrame(salesdata)
+    
+
+def top_products(df, n=10):
+    """
+    Find top N products by total sales.
+    Returns: DataFrame with columns [product_name, category, total_sales, units_sold]
+    """
+    ordered_df = df
+
+    ordered_df["total_sales"] = ordered_df["quantity"] * ordered_df["unit_price"] # get a total sales column for my math
+    ordered_df.sort_values(by=["total_sales"]) # sorts values by the total sales we just made
+
+    product_group = ordered_df.groupby("product_name")
+    total_sales = product_group["total_sales"].sum()
+    units_sold = product_group["quantity"].sum()
+    product_name = product_group.groups.keys()
+    category = product_group["category"].apply(lambda x: x)
+
+    salesdata = {
+        "product_name":list(product_name),
+        "category": list(category),
+        "total_sales": list(total_sales),
+        "units_sold":list(units_sold)
+
+    }
+    return pd.DataFrame(salesdata)
+
+
+
+def daily_sales_trend(df):
+    """
+    Calculate daily sales totals.
+    Returns: DataFrame with columns [date, total_sales, order_count]
+    """
+    pass
+
+def customer_analysis(df):
+    """
+    Analyze customer purchasing behavior.
+    Returns: DataFrame with columns [customer_id, total_spent, order_count, 
+             avg_order_value, favorite_category]
+    """
+    pass
+
+def weekend_vs_weekday(df):
+    """
+    Compare weekend vs weekday sales.
+    Returns: Dict with weekend and weekday total sales and percentages.
+    """
+    pass
+
+
 
 if __name__ == "__main__":
     df = load_data("orders.csv")
     explore_data(df)
 
-    df2 = load_data("malformed_order.csv")
-    explore_data(df2)
+    #df2 = load_data("malformed_order.csv")
+    #explore_data(df2)
 
     #print("before:", df2)
     #print("\n\nAfter:",clean_data(df2))
-    df2 = clean_data(df2)
+
+    #df2 = clean_data(df2)
+
+    #df3 = add_time_features(df2)
+    #print("TESTING time features\n\n\n",df3)
     
-    df3 = add_time_features(df2)
-    print("TESTING time features\n\n\n",df3)
-    
+
+    #salesDF = sales_by_category(df)
+    #print(salesDF)
+
+    #regionDF = sales_by_region(df)
+    #print(regionDF)
+
+    productsDF = top_products(df)
+    print(productsDF)
