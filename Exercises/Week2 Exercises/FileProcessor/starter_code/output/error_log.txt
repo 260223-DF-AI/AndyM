@@ -1,0 +1,4 @@
+Error processing file: line 3: invalid date format invalid-date
+Error processing file: line 4: quantity must be positive got: -2
+Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+Error processing file: line 6: quantity must be positive got: abc

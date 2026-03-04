@@ -1,0 +1,188 @@
+<2026-03-03 22:12:29.938593> [INFO]: + at {'date': '2024-01-15', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '10', 'price': '29.99', 3: 10} appended an error to error_list 4
+<2026-03-03 22:12:35.809115> [INFO]: + at {'date': '2024-01-15', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '10', 'price': '29.99', 3: 10} appended an error to error_list 4
+<2026-03-03 22:16:41.605397> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:16:41.605397> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:16:41.605397> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list MissingFieldError.__init__() takes 1 positional argument but 2 were given
+<2026-03-03 22:16:41.606399> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:16:41.606399> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:16:46.685355> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:16:46.686356> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:16:46.686356> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list MissingFieldError.__init__() takes 1 positional argument but 2 were given
+<2026-03-03 22:16:46.686356> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:16:46.686356> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:20:06.007393> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:20:06.008395> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:20:06.008395> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list MissingFieldError.__init__() takes 1 positional argument but 2 were given
+<2026-03-03 22:20:06.008395> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:20:06.008395> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:20:13.544579> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:20:13.545582> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:20:13.545582> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list MissingFieldError.__init__() takes 1 positional argument but 2 were given
+<2026-03-03 22:20:13.545582> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:20:13.545582> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:20:36.761113> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:20:36.761113> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:20:36.761113> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list MissingFieldError.__init__() takes 1 positional argument but 2 were given
+<2026-03-03 22:20:36.762113> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:20:36.762113> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:22:30.379860> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:22:30.380860> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:22:30.380860> [ERROR]: + required field is missing
+<2026-03-03 22:22:30.380860> [ERROR]: + File processing Error has occured processing line 4: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:22:30.380860> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list File processing Error has occured processing line 4: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:22:30.380860> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:22:30.381860> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:23:34.733880> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:23:34.733880> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:23:34.734883> [ERROR]: + required field is missing
+<2026-03-03 22:23:34.734883> [ERROR]: + File processing Error has occured processing line 4: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:23:34.734883> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list File processing Error has occured processing line 4: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:23:34.734883> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:23:34.734883> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:23:55.485121> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:23:55.485121> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:23:55.485121> [ERROR]: + required field is missing
+<2026-03-03 22:23:55.485121> [ERROR]: + File processing Error has occured processing line 4: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:23:55.486121> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list File processing Error has occured processing line 4: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:23:55.486121> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:23:55.486121> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:24:48.319589> [ERROR]: + validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:24:48.320593> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 2: invalid date format invalid-date
+<2026-03-03 22:24:48.320593> [ERROR]: + required field is missing
+<2026-03-03 22:24:48.320593> [ERROR]: + File processing Error has occured processing line 4: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:24:48.320593> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list File processing Error has occured processing line 4: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:24:48.320593> [ERROR]: + validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:24:48.320593> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 5: quantity must be positive got: abc
+<2026-03-03 22:25:15.850621> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:25:15.850621> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:25:15.850621> [ERROR]: + required field is missing
+<2026-03-03 22:25:15.851621> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:25:15.851621> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:25:15.851621> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:25:15.851621> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:26:39.589924> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:26:39.589924> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:26:39.591433> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:26:39.591433> [ERROR]: + required field is missing
+<2026-03-03 22:26:39.591433> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:26:39.591433> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:26:39.591433> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:26:39.591433> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:26:39.592443> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:27:16.686830> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:27:16.686830> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:27:16.686830> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:27:16.686830> [ERROR]: + required field is missing
+<2026-03-03 22:27:16.687830> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:27:16.687830> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:27:16.687830> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:27:16.687830> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:27:16.687830> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:28:04.965383> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:28:04.965383> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:28:04.966388> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:28:04.966388> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:28:04.966388> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:28:04.966388> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:28:04.967387> [ERROR]: + required field is missing
+<2026-03-03 22:28:04.967387> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:28:04.967387> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:28:04.967387> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:28:04.967387> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:28:04.968386> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:28:11.214131> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:28:11.214131> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:28:11.214131> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:28:11.214131> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:28:11.214131> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:28:11.215136> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:28:11.215136> [ERROR]: + required field is missing
+<2026-03-03 22:28:11.215136> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:28:11.215136> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:28:11.215136> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:28:11.215136> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:28:11.216136> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:28:23.365896> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:28:23.366895> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:28:23.366895> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:28:23.366895> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:28:23.366895> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:28:23.366895> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:28:23.366895> [ERROR]: + required field is missing
+<2026-03-03 22:28:23.367895> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:28:23.367895> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:28:23.367895> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:28:23.367895> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:28:23.367895> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:28:57.799549> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:28:57.799549> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:28:57.800547> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:28:57.800547> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:28:57.800547> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:28:57.800547> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:28:57.800547> [ERROR]: + required field is missing
+<2026-03-03 22:28:57.800547> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:28:57.800547> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:28:57.800547> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:28:57.801547> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:28:57.801547> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:30:23.108922> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:30:23.108922> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:30:23.108922> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:30:23.108922> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:30:23.108922> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:30:23.109922> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:30:23.109922> [ERROR]: + required field is missing
+<2026-03-03 22:30:23.109922> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:30:23.109922> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:30:23.109922> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:30:23.109922> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:30:23.109922> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:32:39.242082> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:32:39.242082> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:32:39.242082> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:32:39.243078> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:32:39.243078> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:32:39.243078> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:32:39.243078> [ERROR]: + required field is missing
+<2026-03-03 22:32:39.243078> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:32:39.243078> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:32:39.244079> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:32:39.244079> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:32:39.244079> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:33:20.781116> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:33:20.781116> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:33:20.782113> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:33:20.782113> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:33:20.782113> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:33:20.782113> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:33:20.782113> [ERROR]: + required field is missing
+<2026-03-03 22:33:20.782113> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:33:20.782113> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:33:20.782113> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:33:20.782113> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:33:20.782113> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:33:54.108867> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:33:54.109865> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:33:54.109865> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:33:54.109865> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:33:54.109865> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:33:54.109865> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:33:54.109865> [ERROR]: + required field is missing
+<2026-03-03 22:33:54.109865> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:33:54.110865> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:33:54.110865> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:33:54.110865> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:33:54.110865> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
+<2026-03-03 22:37:18.500627> [ERROR]: + validation has failed on: line 3: invalid date format invalid-date
+<2026-03-03 22:37:18.500627> [ERROR]: + File processing Error has occured processing line 3: invalid date format invalid-date
+<2026-03-03 22:37:18.500627> [INFO]: + at {'date': 'invalid-date', 'store_id': 'STORE001', 'product': 'Widget A', 'quantity': '3', 'price': '29.99'} appended an error to error_list Error processing file: line 3: invalid date format invalid-date
+<2026-03-03 22:37:18.500627> [ERROR]: + validation has failed on: line 4: quantity must be positive got: -2
+<2026-03-03 22:37:18.500627> [ERROR]: + File processing Error has occured processing line 4: quantity must be positive got: -2
+<2026-03-03 22:37:18.501627> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE003', 'product': 'Widget C', 'quantity': -2, 'price': '19.99'} appended an error to error_list Error processing file: line 4: quantity must be positive got: -2
+<2026-03-03 22:37:18.501627> [ERROR]: + required field is missing
+<2026-03-03 22:37:18.501627> [ERROR]: + File processing Error has occured processing line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:37:18.501627> [INFO]: + at {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'} appended an error to error_list Error processing file: line 5: missing field in {'date': '2024-01-16', 'store_id': '', 'product': 'Product X', 'quantity': '8', 'price': '15.00'}
+<2026-03-03 22:37:18.501627> [ERROR]: + validation has failed on: line 6: quantity must be positive got: abc
+<2026-03-03 22:37:18.501627> [ERROR]: + File processing Error has occured processing line 6: quantity must be positive got: abc
+<2026-03-03 22:37:18.502629> [INFO]: + at {'date': '2024-01-16', 'store_id': 'STORE002', 'product': 'Gadget B', 'quantity': 'abc', 'price': '49.99'} appended an error to error_list Error processing file: line 6: quantity must be positive got: abc
