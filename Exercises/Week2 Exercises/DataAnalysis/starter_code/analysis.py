@@ -9,7 +9,7 @@ def load_data(filepath):
     """
     # loading
     df = pd.read_csv(filepath, parse_dates=["order_date"]) # handles dates and all missing values are nan by default (which is what I want)
-
+    #print(df.dtypes)
     return df
 
 
@@ -159,20 +159,20 @@ def top_products(df, n=10):
 
     ordered_df["total_sales"] = ordered_df["quantity"] * ordered_df["unit_price"] # get a total sales column for my math
     ordered_df.sort_values(by=["total_sales"]) # sorts values by the total sales we just made
-
     product_group = ordered_df.groupby("product_name")
     total_sales = product_group["total_sales"].sum()
     units_sold = product_group["quantity"].sum()
     product_name = product_group.groups.keys()
     category = product_group["category"].apply(lambda x: x)
-
     salesdata = {
         "product_name":list(product_name),
-        "category": list(category),
+        "category": list(category)[:len(list(product_name))],
         "total_sales": list(total_sales),
         "units_sold":list(units_sold)
 
     }
+    #print(salesdata)
+    #print("DF", df["category"])
     return pd.DataFrame(salesdata)
 
 
