@@ -182,7 +182,23 @@ def daily_sales_trend(df):
     Calculate daily sales totals.
     Returns: DataFrame with columns [date, total_sales, order_count]
     """
-    pass
+    # reusing code to add total_sales
+    ordered_df = df
+
+    ordered_df["total_sales"] = ordered_df["quantity"] * ordered_df["unit_price"] # get a total sales column for my math
+
+    daily_group = ordered_df.groupby("product_name")
+    total_sales = daily_group["total_sales"].sum()
+    date = daily_group.groups.keys()
+    order_count = daily_group.size()
+
+    salesdata = {
+        "date":list(date),
+        "total_sales": list(total_sales),
+        "order_count": list(order_count)
+
+    }
+    return pd.DataFrame(salesdata)
 
 def customer_analysis(df):
     """
@@ -190,28 +206,64 @@ def customer_analysis(df):
     Returns: DataFrame with columns [customer_id, total_spent, order_count, 
              avg_order_value, favorite_category]
     """
-    pass
+    # reusing code to add total_sales
+    ordered_df = df
+
+    ordered_df["total_sales"] = ordered_df["quantity"] * ordered_df["unit_price"] # get a total sales column for my math
+
+    customer_group = ordered_df.groupby("customer_id")
+    total_spent = customer_group["total_sales"].sum()
+    order_count = customer_group.size()
+    avg_order_value = customer_group["total_sales"].mean()
+    favorite_category = list(customer_group["category"].agg(pd.Series.mode).iloc[0]) # get most frequent seen category per customer
+    
+    salesdata = {
+        "customer_id":list(customer_group.groups.keys()),
+        "total_spent": list(total_spent),
+        "order_count": list(order_count),
+        "avg_order_value" : list(avg_order_value),
+        "favorite_category" : list(favorite_category)
+
+    }
+    return pd.DataFrame(salesdata)
+    #print("cat:", favorite_category)
+    #print("END---")
 
 def weekend_vs_weekday(df):
     """
     Compare weekend vs weekday sales.
     Returns: Dict with weekend and weekday total sales and percentages.
     """
-    pass
+    time_df = add_time_features(df)
+    # reusing code to add total_sales
+    ordered_df = time_df
+    ordered_df["total_sales"] = ordered_df["quantity"] * ordered_df["unit_price"] # get a total sales column for my math
 
+    time_group = ordered_df.groupby("weekend")
+    total_sales = time_group["total_sales"].sum()
+    percentages = time_group.size()/time_df.shape[0]
+
+    
+    salesdata = {
+        "is_weekend":list(time_group.groups.keys()),
+        "total_sales": list(total_sales),
+        "percentages": list(percentages)
+
+    }
+    return pd.DataFrame(salesdata)
 
 
 if __name__ == "__main__":
     df = load_data("orders.csv")
-    explore_data(df)
+    #explore_data(df)
 
-    #df2 = load_data("malformed_order.csv")
+    df2 = load_data("malformed_order.csv")
     #explore_data(df2)
 
     #print("before:", df2)
     #print("\n\nAfter:",clean_data(df2))
 
-    #df2 = clean_data(df2)
+    df2 = clean_data(df2)
 
     #df3 = add_time_features(df2)
     #print("TESTING time features\n\n\n",df3)
@@ -223,5 +275,11 @@ if __name__ == "__main__":
     #regionDF = sales_by_region(df)
     #print(regionDF)
 
-    productsDF = top_products(df)
-    print(productsDF)
+    #productsDF = top_products(df)
+    #print(productsDF)
+
+    #customerDF = customer_analysis(df)
+    #print(customerDF)
+
+    weekendDF = weekend_vs_weekday(df2)
+    print(weekendDF)
