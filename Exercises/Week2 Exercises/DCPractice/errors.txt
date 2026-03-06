@@ -1,0 +1,3 @@
+ERROR yes i am show
+INFO all is good
+ERROR me too is error

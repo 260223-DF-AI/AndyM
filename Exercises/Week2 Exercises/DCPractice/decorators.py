@@ -15,10 +15,11 @@ def timer(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         s =time.time()
-        func(*args, **kwargs)
+        res = func(*args, **kwargs)
         e = time.time()
         print(f"{func.__name__} took {e-s} seconds")
-        return wrapper
+        return res
+    return wrapper
 
 
 
@@ -43,10 +44,11 @@ def logger(func):
     def wrapper(*args, **kwargs):
         args_str = ",".join(str(arg) for arg in args)
         kwargs_str = ",".join(str(value) for arg,value in kwargs)
-        print(f"Calling {func.__name__}({args_str}{kwargs})")
+        print(f"Calling {func.__name__}({args_str}{kwargs_str})")
         val = func(*args, **kwargs)
         print(f"{func.__name__} returned {val}")
-        return wrapper
+        return val
+    return wrapper
 
 
 #### Task 1.3: Retry Decorator with Arguments (30 min)
@@ -71,12 +73,12 @@ def retry(max_attempts=3, delay=1, exceptions=(Exception,)):
         def wrapper(*args, **kwargs):
             for i in range(max_attempts):
                 try:
-                    func(*args, **kwargs)
-                    return wrapper
+                    val = func(*args, **kwargs)
+                    return val
                 except exceptions: # failed, try again after delay
                     time.sleep(delay)
-
-            raise # max attempts reached raise error
+            raise Exception# max attempts reached raise error
+        return wrapper
     return decorator
 
 #### Task 1.4: Cache Decorator (30 min)
@@ -102,6 +104,7 @@ def cache(max_size=128):
     def decorator(func):
         @wraps
         def wrapper(*args, **kwargs):
-            func(*args,**kwargs)
-            return wrapper
+            val = func(*args,**kwargs)
+            return val
+        return wrapper
     return decorator

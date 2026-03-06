@@ -9,16 +9,20 @@ def read_lines(filepath, encoding='utf-8'):
         for line in read_lines('large_file.txt'):
             process(line)
     """
+    print("OI AM HERE")
     try:
         with open(filepath, "r") as f:
             for line in f:
+                print("line:",line)
                 cleaned_line = line.strip() # strip wspace
                 if not cleaned_line: # skip empty lines
+                    print("found empty line")
                     continue
                 else:
                     yield cleaned_line # good
 
     except FileNotFoundError as e:
+        print("FILE NOT FOUND")
         return None # file wasn't found just give them nothing
     except UnicodeError as e:
         if encoding == 'utf-8':
@@ -40,19 +44,16 @@ def batch(iterable, size):
         list(batch([1,2,3,4,5,6,7], 3))
         # [[1,2,3], [4,5,6], [7]]
     """
-    counter = 0
-    it = iter(iterable) # transform it into an iterable object
     batch = []
-    while counter < size:
-        try:
-            batch.append(next(it))
-            counter += 1
-        except StopIteration: # end reached
-            return batch
-        except Exception as e:
-            print("caught wrong exception name:", e)
-
-    return batch
+    #it = iter(iterable)
+    #print("iterable,",iterable)
+    for item in iterable:
+        if len(batch) < size:
+            batch.append(item)
+        else:
+            yield batch
+            batch = [item]
+    yield batch
 
 #### Task 2.3: Filter Generator (20 min)
 
@@ -76,7 +77,9 @@ def filter_errors(log_lines):
     """
     Yield only lines containing 'ERROR'.
     """
-    for line in log_lines:
+    lines = log_lines.split("\n")
+    for line in lines:
+        line = line.strip()
         if "ERROR" in line:
             yield line
 
