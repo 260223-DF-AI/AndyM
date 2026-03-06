@@ -83,7 +83,7 @@ def retry(max_attempts=3, delay=1, exceptions=(Exception,)):
 
 #### Task 1.4: Cache Decorator (30 min)
 
-def cache(max_size=128):
+def cache2(max_size=128):
     """
     Cache function results.
     Similar to lru_cache but with visible cache inspection.
@@ -102,7 +102,7 @@ def cache(max_size=128):
     """
     @cache(max_size=max_size)
     def decorator(func):
-        @wraps
+        @wraps(func)
         def wrapper(*args, **kwargs):
             val = func(*args,**kwargs)
             return val

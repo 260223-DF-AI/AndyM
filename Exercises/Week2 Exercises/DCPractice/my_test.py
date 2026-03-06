@@ -27,6 +27,18 @@ def test_retry_succeeds_eventually(): # test has a small chance to fail
     assert True # it works i saw the print statement called 3x
 
 
+def test_metadata():
+    def my_name():
+        return 0
+    
+    wrapped = timer(my_name)
+    orig = my_name.__name__
+    wrapped_name = wrapped.__name__
+
+    assert wrapped_name == orig
+    #assert False
+
+
 def test_cache_returns_cached_value():
     """Cache should return same value without recomputing."""
     pass
