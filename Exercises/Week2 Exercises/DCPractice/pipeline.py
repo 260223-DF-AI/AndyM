@@ -1,3 +1,4 @@
+import datetime
 def create_pipeline(*stages):
     """
     Create a processing pipeline from multiple generator functions.
@@ -54,9 +55,10 @@ def validate_records(records):
 def enrich_records(records):
     """Add calculated fields to each record."""
 
-    # no clue
-    return records # the data is rich in spirit
-
+    # time stamp the record
+    for record in records:
+        record["time_stamp"] = datetime.now()
+    return records
 
 def deduplicate(records, key_field):
     """Yield unique records based on a key field."""
