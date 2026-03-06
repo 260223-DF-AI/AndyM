@@ -64,3 +64,47 @@ def test_top_products_returns_correct_count(sample_data):
 
     })
     assert result.equals(salesdata)
+
+
+def test_add_time_features(sample_data):
+    """Test that tests to see if the added time features show correct behavior"""
+
+    expected = pd.DataFrame({
+        'order_id': [1, 2, 3,3],
+        'customer_id': ['C001', 'C002', 'C001','C001'],
+        'order_date': pd.to_datetime(['2024-01-01', '2024-01-02', '2024-01-02','2024-01-02']),
+        'product_name': ['Widget', 'Gadget', 'Widget', 'Widget'],
+        'category': ['Electronics', 'Electronics', 'Electronics', 'Electronics'],
+        'quantity': [2, 1, 3,3],
+        'unit_price': [10.00, 25.00, 10.00,10.00],
+        'region': ['North', 'South', 'North', 'North'],
+        'day' : ["Tuesday", "Wednesday", "Wednesday","Wednesday"],
+        'month':[1,1,1,1],
+        'quarter':[1,1,1,1],
+        'weekend' : [False,False,False,False]
+    })
+
+    result = add_time_features(sample_data)
+    pd.set_option('display.max_columns', None)
+    #print("res",result)
+    #print("ex",expected)
+
+    #print("COMPARE",result.compare(expected))
+
+    assert (result.compare(expected).empty)
+
+
+def test_weekdayvsweekend(sample_data):
+
+    salesdata = pd.DataFrame({
+        "is_weekend":[False],
+        "total_sales": [105.0],
+        "percentages": [1.0]
+
+
+    })
+    result = weekend_vs_weekday(sample_data)
+
+    #print("Result:",result)
+    #print(result.compare(salesdata))
+    assert result.compare(salesdata).empty
