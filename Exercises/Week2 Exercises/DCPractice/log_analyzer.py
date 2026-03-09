@@ -74,4 +74,7 @@ def process_logs_in_batches(log_path, batch_size=1000):
     Process logs in batches for database insertion.
     Yields batches of parsed log entries.
     """
-    pass
+    lines = read_lines(log_path)
+    batches = batch(lines, batch_size)
+    for b in batches:
+        yield b
