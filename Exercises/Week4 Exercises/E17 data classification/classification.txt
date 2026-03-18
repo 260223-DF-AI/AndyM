@@ -1,0 +1,81 @@
+### Dataset A: Patient Records
+
+- Format: Relational database export (PostgreSQL dump)
+- Size: 50 GB
+- Contents: Patient demographics, visit history, billing codes
+- Update frequency: Real-time inserts, daily batch updates
+
+* Structured Data
+* Low variety, fairly low frequency of updates (velocity) small DB size (volume)
+* use Parquet in google DB or a datalake
+
+
+
+### Dataset B: Medical Images
+
+- Format: DICOM files
+- Size: 5 TB
+- Contents: X-rays, MRIs, CT scans
+- Update frequency: Continuous (100+ images/hour)
+
+* Unstructured data
+* Volume: Moderately high
+* Velocity : high
+* Variety : high (different types of images)
+* Veracity : high
+* Value High
+
+* Keep as DICOM because this is standard for medical images, extract metadata as parquet, dump into bulk storage such as S3
+
+### Dataset C: Doctor Notes
+
+- Format: PDF and Word documents
+- Size: 200 GB
+- Contents: Free-text clinical notes, handwritten prescriptions
+- Update frequency: Daily additions
+
+* Unstructured data
+* Volume: moderate
+* Velocity : low
+* Variety : high (different types of notes)
+* Veracity : low (its a doctors note, could be true or not)
+* Value moderate (its a paper trail)
+
+* Extract text and store as json or parquet
+* if copies needed, then keep reformatted copies of the pdf/doc dump into S3
+
+
+
+
+### Dataset D: IoT Sensor Data
+
+- Format: JSON from medical devices
+- Size: 10 GB/day (streaming)
+- Contents: Heart rate, blood pressure, temperature readings
+- Update frequency: Real-time streaming (1000 events/second)
+
+* Structured
+* Volume: Going to be very high
+* Velocity : High
+* Variety : medium (same types of data but different sensors)
+* Veracity : low (lots of noise/variables)
+* Value high (real-time monitoring)'
+
+* keep as JSON for human analysis and transform to parquet when done
+
+### Dataset E: Insurance Claims
+
+- Format: XML files from external partners
+- Size: 2 GB/week
+- Contents: Claims, approvals, denials with nested structures
+- Update frequency: Weekly batch
+
+
+* Structured
+* Volume: low
+* Velocity : low
+* Variety : medium (same types of data but different types)
+* Veracity : medium (its paper trails of claims)
+* Value high (money)
+
+* keep xml or change to json for analytics, transform to parquet after done

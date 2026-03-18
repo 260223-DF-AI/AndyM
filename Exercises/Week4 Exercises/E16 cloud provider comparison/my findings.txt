@@ -1,0 +1,32 @@
+costs for AWS AZURE and GCP are very similar
+
+
+GCP offers the most amount of free credit at 300 for your monthly trial
+
+
+all 3 use pay as you go
+
+
+Computing:
+EC2 vs Azure VM vs GCP compute
+
+GCP has more discounts people say online so it ends up being slightly cheaper
+
+
+Cheapo storage
+S3/ Blob / Cloud Storage
+
+AWS has the lowest lows but it gets pricier if you want more premium storage
+
+
+DBS
+RDS / azure sql/ cloud sql
+
+Azure if you use a lot of Microsoft stuff GCP is cheapest due to coupons
+
+
+
+Summary
+GCP : long term services, take advantage of coupons for lower prices
+Azure : you use a lot of MS products, this integrates very well
+AWS : biggest marketshare, a lot of help from resources, good for variable workloads

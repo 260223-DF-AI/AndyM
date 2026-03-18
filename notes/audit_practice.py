@@ -6,7 +6,7 @@ def do_practice(filepath, num_topics):
     # list all files in audit folder
     folder_path = Path(filepath)
     topics = [file.name for file in folder_path.iterdir() if file.is_file()]
-    #print(topics)
+    print(topics)
 
 
     # use .sample() to randomly select some topics
@@ -34,7 +34,7 @@ def do_practice(filepath, num_topics):
 if __name__ == "__main__":
 
     topics, content = do_practice("./audit1", 1)
-    #print(topics)
+    print(topics)
     #print("content:",content)
 
     # this is where you would pipe the notes into chat + topics for questions
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     # pipe output into file
     content_lines = content[0].split("\n")
     with open("output.txt","w") as file:
-        file.write(f"write interview style questions based off the following topic: {topics[0]}\n")
+        file.write(f"write interview style questions based off the following topic, also provide model answers: {topics[0]}\n")
         file.write(f"the following is the notes to base the questions off:")
         file.writelines(sentence + "\n" for sentence in content_lines)
 
