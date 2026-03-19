@@ -1,5 +1,12 @@
 costs for AWS AZURE and GCP are very similar
 
+Matrix
+Requirement |       AWS |        Azure |        GCP
+Data Warehouse      RDS     Azure DBS       CloudSQL
+Batch Processing Redshift   Azure Synapse   BigQuery
+Storage         S3              Blob        GCS
+Stream Processing Kinesis   AEH             Dataflow
+
 
 GCP offers the most amount of free credit at 300 for your monthly trial
 
@@ -30,3 +37,35 @@ Summary
 GCP : long term services, take advantage of coupons for lower prices
 Azure : you use a lot of MS products, this integrates very well
 AWS : biggest marketshare, a lot of help from resources, good for variable workloads
+
+
+2: costs
+
+DBS (500GB)
+AWS : ~$60-75
+Azure : $55-70
+GCP : $50-60
+
+
+Object Storage (10TB)
+AWS : $230
+Azure : $200
+GCP : $200
+
+Computing (1000 hours of VM)
+AWS : 150
+Azure : 140
+GCP : 120
+
+
+Totals :
+AWS : ~450
+Azure : ~ 400
+GCP : ~375
+
+
+Analysis : 
+Google's GCP seems to be the most cost effective for us. Though all 3 are very similar in prices
+for their services for a company. It boils down to the Customer Service options the company wants and
+whether they want the extra customization from AWS or if MS office is a big consideration
+Overall (AWS for options + multi-region) (Azure if you're heavily invested in MS products) (GCP for cheapest and more simplicity)

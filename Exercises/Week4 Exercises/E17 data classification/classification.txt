@@ -79,3 +79,4 @@
 * Value high (money)
 
 * keep xml or change to json for analytics, transform to parquet after done
+
