@@ -1,0 +1,7 @@
+CREATE TABLE `project-ba159638-a1af-42fb-815.analytics_lab.sales_partitioned`
+PARTITION BY DATE(created_at)
+CLUSTER BY user_id
+AS
+SELECT *
+FROM `bigquery-public-data.thelook_ecommerce.order_items`
+WHERE created_at  >= '2023-01-01';

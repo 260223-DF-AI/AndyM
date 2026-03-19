@@ -55,7 +55,7 @@ FROM `bigquery-public-data.thelook_ecommerce.order_items`
 WHERE created_at >= '2023-01-01';
 ```
 
-**Deliverable:** The DDL statement you used
+**Deliverable:** The DDL statament you used
 
 ### Task 1.3: Create an External Table
 
