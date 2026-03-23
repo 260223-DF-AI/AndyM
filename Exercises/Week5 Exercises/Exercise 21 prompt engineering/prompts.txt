@@ -1,0 +1,168 @@
+You are Data Engineer very good at Bigquery make a bigquery sql that does the following:
+- Find the top 5 departments by average salary
+- Include the department name, average salary, and employee count
+- Only include departments with more than 10 employees
+- Order by average salary descending
+
+answer:
+SELECT
+  department,
+  AVG(salary) AS avg_salary,
+  COUNT(*) AS employee_count
+FROM
+  `my_project.my_dataset.employees`
+GROUP BY
+  department
+HAVING
+  COUNT(*) > 10
+ORDER BY
+  avg_salary DESC
+LIMIT 5;
+
+=========================================
+I have an error message: google.api_core.exceptions.BadRequest: 400 Syntax error: 
+Expected end of input but got keyword SELECT at [3:1]
+what should i do?
+
+
+ans: 4/5
+the explanation tells me that the syntax error has to do with the SELECT key word after the end of an input and tells me to check to see if 
+I put a semicolon to indicate a line ended. It also suggested other common issues if that wasn't the case
+
+
+
+================================================
+you are a data engineer do the following : Write a zero-shot prompt to generate a data dictionary entry for a column called `customer_lifetime_value` in a `dim_customer` table. The entry should include: data type, description, business definition, calculation method, and example values.
+
+
+Data Type: NUMERIC
+Description: Total projected revenue expected from a customer over their full relationship with the business.
+Business Definition: Measures long‑term customer profitability and helps guide marketing, retention, and investment decisions.
+Calculation Method: Typically calculated as average order value × purchase frequency × expected customer lifespan, optionally adjusted for retention or discount factors.
+Example Values: 245.75, 1,032.40, 6,587.10, 12,904.55
+
+
+
+
+eval: the ai did not initially answer my question. It parroted my question and kept putting [insert values here] instead of giving examples or doing the task. I would maybe need to provide for context such as a formatted template so it knows how to answer.
+
+==================================================
+it recognizes snake_case
+
+ShippingAddress Line1 → shipping_address_line1
+total_Revenue_YTD → total_revenue_ytd
+customerEmailAddress → customer_email_address
+ORDER__STATUS__CODE → order_status_code
+
+
+
+=================================================
+Query: Monthly Revenue and Customer Count by Product Category
+Purpose: Calculates monthly revenue and the number of unique customers per product category starting from January 1, 2024
+Tables Used: orders, products
+Output Columns: category, month, revenue, unique_customers
+Aggregation: SUM (quantity * unit_price) and COUNT DISTINCT (customer_id) grouped by category and month
+Filters: order_date >= '2024-01-01'
+Joins: INNER JOIN between orders and products on product_id
+Ordering: Sorted by category and month
+
+=========================================================
+Final Answer
+Cost per query: ~$0.23
+Daily cost: ~$0.94
+Monthly cost: ~$28.13
+
+after clustering (chain of thought)	
+
+New cost
+3.75 GB = 0.00375 TB
+Cost/query = 0.00375 × $6.25 ≈ $0.023
+
+👉 That’s a ~90% reduction
+4. Daily + Monthly impact
+With optimizations:
+Per query: ~$0.012
+Daily (4 runs): ~$0.048
+Monthly: ~$1.44
+
+👉 From $28 → ~$1.44/month (~95% savings)
+=================================================================
+it identifies IAM permissions as the root cause, I agree
+
+🔍 Key Observation
+Error: bigquery.tables.create denied
+Pipeline worked for 30 days, then failed
+No code changes
+Same project + service account
+
+👉 This strongly suggests an environment or IAM change, not a code issue.
+
+
+
+another cause:
+2. Dataset-Level Permissions vs Project-Level
+
+BigQuery permissions can be scoped differently.
+
+Possible issue:
+Service account still has project-level access, but:
+Lost dataset-level permission to create tables
+Example:
+Can query tables ✅
+Cannot create new tables ❌
+
+=======================================================================
+You are a strict Python code generator. Follow ALL constraints exactly.
+
+Write a Python function with the following requirements:
+
+- Function name: validate_order_data
+- Input: a pandas DataFrame
+- Output: a dictionary containing validation results
+
+The function must check:
+1. Null values in any column
+2. Negative values in a column named "amount"
+3. Future dates in a column named "order_date"
+4. Duplicate values in a column named "order_id"
+
+Constraints:
+- Maximum 30 lines of code (including docstring)
+- Must include type hints for all parameters and return values
+- Must include a clear docstring explaining the function
+- Use only pandas and datetime (no other libraries)
+- Assume columns: order_id, amount, order_date exist
+- Return a dictionary with boolean flags for each check
+
+Output ONLY the Python function. Do not include explanations.
+
+
+
+
+OUTPUT
+import pandas as pd
+from datetime import datetime
+
+def validate_order_data(df: pd.DataFrame) -> dict:
+    """
+    Validates order data in a pandas DataFrame.
+
+    Checks for:
+    - Null values in any column
+    - Negative values in 'amount'
+    - Future dates in 'order_date'
+    - Duplicate values in 'order_id'
+
+    Returns a dictionary with boolean results for each check.
+    """
+    null_values = df.isnull().any().any()
+    negative_amounts = (df["amount"] < 0).any()
+    future_dates = (pd.to_datetime(df["order_date"]) > datetime.now()).any()
+    duplicate_ids = df["order_id"].duplicated().any()
+
+    return {
+        "null_values": bool(null_values),
+        "negative_amounts": bool(negative_amounts),
+        "future_dates": bool(future_dates),
+        "duplicate_ids": bool(duplicate_ids),
+    }

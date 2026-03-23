@@ -38,3 +38,13 @@ model : string 1
 expensive : bool 0
 
 
+subscription_type
+type : string PK 0
+price : decimal 2
+duration : decimal 1
+Access : string 2
+
+Time 
+subscription_id int FK 0
+date_subscribed : date 2
+date unsubscribed : date 2
