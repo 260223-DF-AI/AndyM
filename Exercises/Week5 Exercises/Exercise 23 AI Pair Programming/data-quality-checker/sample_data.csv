@@ -1,0 +1,51 @@
+order_id,customer_name,email,order_date,amount,status
+1000,Alice Davis,alice.davis@example.com,2024-08-19,35.58,completed
+1001,Eve Johnson,eve.johnson@example.com,2023-02-27,474.53,pending
+1002,Charlie Doe,charlie.doe@example.com,2024-08-08,92.34,cancelled
+1003,Charlie Lee,charlie.lee@example.com,2024-11-22,234.12,cancelled
+1004,Eve Clark,eve.clark@example.com,2024-01-09,148.22,cancelled
+1005,,frank.smith@example.com,2025-02-14,340.45,cancelled
+1006,Alice Brown,alice.brown@example.com,2024-04-25,236.52,pending
+1007,Frank Johnson,frank.johnson@example.com,2024-09-06,295.22,cancelled
+1008,Frank Smith,invalidemail.com,2023-10-19,200.85,pending
+1009,John Lee,john.lee@example.com,2023-05-05,188.49,completed
+1009,John Davis,john.davis@example.com,2023-07-25,433.52,completed
+1011,Frank Doe,frank.doe@example.com,2023-06-30,11.06,completed
+1012,,frank.lee@example.com,2023-03-12,74.29,completed
+1013,John Smith,john.smith@example.com,2023-08-02,400.64,cancelled
+1014,Eve Taylor,eve.taylor@example.com,2023-05-05,78.31,pending
+1015,Diana Doe,diana.doe@example.com,2024-07-25,-50.0,pending
+1016,Charlie Wilson,charlie.wilson@example.com,2023-05-03,144.99,cancelled
+1017,Eve Doe,eve.doe@example.com,2023-01-26,39.77,cancelled
+1018,John Wilson,john.wilson@example.com,2023-01-28,157.77,completed
+1019,Diana Lee,diana.lee@example.com,2024-05-07,86.04,pending
+1019,John Wilson,john.wilson@example.com,2023-08-21,157.05,pending
+1021,John Smith,john.smith@example.com,2024-08-12,291.36,pending
+1022,Eve Doe,eve.doe@example.com,2024-10-02,157.33,cancelled
+1023,Hank Lee,hank.lee@example.com,2024-07-25,314.48,pending
+1024,Frank Taylor,frank.taylor@example.com,2023-12-09,133.31,completed
+1025,,charlie.brown@example.com,2024-04-18,322.62,completed
+1026,Jane Taylor,jane.taylor@example.com,2023-11-27,445.84,completed
+1027,John Hall,john.hall@example.com,2023-10-07,480.93,pending
+1028,Frank Clark,frank.clark@example.com,2023-05-06,172.17,pending
+1029,Grace Wilson,grace.wilson@example.com,2024-01-29,290.56,pending
+1030,Frank Johnson,frank.johnson@example.com,2023-08-06,-120.75,completed
+1031,Frank Lee,frank.lee@example.com,2025-03-04,168.9,pending
+1032,Frank Brown,frank.brown@example.com,2024-10-14,30.07,completed
+1033,Hank Wilson,hank.wilson@example.com,2023-08-07,216.66,cancelled
+1034,Jane Doe,jane.doe@example.com,2024-02-29,191.59,completed
+1035,Hank Taylor,hank.taylor@example.com,2027-03-25,98.37,pending
+1036,Bob Doe,bob.doe@example.com,2023-10-17,298.78,completed
+1037,Jane Hall,jane.hall@example.com,2023-08-02,219.08,pending
+1038,Jane Hall,jane.hall@example.com,2023-06-17,484.63,pending
+1039,Alice Johnson,alice.johnson@example.com,2024-11-29,148.65,cancelled
+1040,Bob Clark,bob.clark@example.com,2025-01-14,184.63,shipped
+1041,Bob Davis,bob.davis@example.com,2024-07-06,295.61,pending
+1042,Frank Taylor,frank.taylor@example.com,2023-06-30,200.0,completed
+1043,Alice Davis,alice.davis@example.com,2024-12-21,286.14,pending
+1044,Eve Brown,eve.brown@example.com,2023-11-12,146.48,completed
+1045,Eve Brown,eve.brown@example.com,2023-04-25,339.11,completed
+1046,Frank Johnson,frank.johnson@example.com,2023-12-28,112.97,cancelled
+1047,Grace Taylor,grace.taylor@example.com,2024-10-28,245.99,completed
+1048,Jane Brown,jane.brown@example.com,2025-02-25,439.74,completed
+1049,Diana Wilson,diana.wilson@example.com,2024-02-17,187.64,completed
