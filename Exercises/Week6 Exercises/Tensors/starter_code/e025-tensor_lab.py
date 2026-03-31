@@ -25,25 +25,37 @@ def create_and_manipulate_tensor():
     print("Torch version:",torch.__version__)
 
     print("Is CUDA enabled?",torch.cuda.is_available())
+    print(torch.cuda.is_available())
+    print(torch.cuda.device_count())
+    print(torch.cuda.get_device_name(0))
+    print("RUNNING ON:", reshaped_tensor.device)
     return reshaped_tensor
 
 
 
 
-def compute_gradients():
+def compute_gradients(device):
     """
     Task 2: Autograd Mechanics
     """
+
     print("\n--- Task 2: Compute Gradients ---")
     
     # 1. Initialize scalar tensor x = 2.0 with gradient tracking
     # TODO: Create the tensor
     x = torch.tensor(2.0, requires_grad=True)
     
+
+
     # 2. Define the equation: y = 3x^2 + 4x + 2
     # TODO: Write the equation
     y = 3 * (x ** 2) + (4 * x) + 2
     
+
+    # test
+    x.to(device)
+    y.to(device)
+
     # 3. Compute the backward pass
     # TODO: Call backward on y
     y.backward()
@@ -57,5 +69,15 @@ def compute_gradients():
 
 
 if __name__ == "__main__":
-    create_and_manipulate_tensor()
-    compute_gradients()
+    #create_and_manipulate_tensor()
+    import time
+
+    start1 = time.time()
+    device = "cpu"
+    compute_gradients(device)
+    print("cpu took:", time.time() - start1)
+
+    start2 = time.time()
+    device = "cuda"
+    compute_gradients(device)
+    print( "gpu took:", time.time()-start2)
