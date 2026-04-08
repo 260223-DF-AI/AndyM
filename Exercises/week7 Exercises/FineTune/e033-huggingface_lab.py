@@ -8,10 +8,10 @@ def initialize_nlp_pipeline(model_name):
     print(f"--- Initializing {model_name} Pipeline ---")
     
     # 1. TODO: Load the AutoTokenizer
-    tokenizer = None
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
     
     # 2. TODO: Load the AutoModelForSequenceClassification
-    model = None
+    model = AutoModelForSequenceClassification.from_pretrained(model_name)
     
     return tokenizer, model
 
@@ -23,23 +23,23 @@ def analyze_sentiment(tokenizer, model, reviews):
     
     # 1. TODO: Tokenize the reviews
     # Remember to set padding=True, truncation=True, and return_tensors="pt"
-    inputs = None
+    inputs = tokenizer(reviews, padding = True, truncation = True, return_tensors="pt")
     
     # 2. TODO: Set the model to evaluation mode
-    
+    model.eval()
     
     # 3. TODO: Perform the forward pass without tracking gradients
-    
-    outputs = None # Replace this with the model's output
+    with torch.no_grad():
+        outputs = model(**inputs) # Replace this with the model's output
         
     print(f"Raw Logits Shape: {outputs.logits.shape}")
     
     # 4. TODO: Convert the raw logits to probabilities using Softmax
-    probs = None
-    
+    sm = torch.nn.Softmax(dim=-1) # softamx function (this is a class in nn)
+    probs = sm(outputs.logits) # use the __call__ on the class using logits
     # 5. TODO: Get the predicted class indices using argmax
-    predicted_classes = None
-    
+    predicted_classes = torch.argmax(outputs.logits, dim=-1)
+    print("PRED:", predicted_classes)
     # Evaluate and print results
     labels = model.config.id2label # Dictionary mapping {0: 'NEGATIVE', 1: 'POSITIVE'}
     
