@@ -33,10 +33,11 @@ def analyze_sentiment(tokenizer, model, reviews):
         outputs = model(**inputs) # Replace this with the model's output
         
     print(f"Raw Logits Shape: {outputs.logits.shape}")
-    
+    print("LOGITS:", outputs.logits)
     # 4. TODO: Convert the raw logits to probabilities using Softmax
     sm = torch.nn.Softmax(dim=-1) # softamx function (this is a class in nn)
     probs = sm(outputs.logits) # use the __call__ on the class using logits
+    print("PROBS:", probs)
     # 5. TODO: Get the predicted class indices using argmax
     predicted_classes = torch.argmax(outputs.logits, dim=-1)
     print("PRED:", predicted_classes)
