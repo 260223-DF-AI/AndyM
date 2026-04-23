@@ -3,6 +3,8 @@ from langchain_core.tools import tool
 #from langgraph.prebuilt import create_react_agent
 from langchain.chat_models import init_chat_model
 from langchain.agents import create_agent
+from langchain_ollama import ChatOllama
+
 
 # =====================================================================
 # 1. Pydantic Structured Output Schema
@@ -49,10 +51,15 @@ def get_stock_sentiment(ticker: str) -> str:
 # Use model_provider="bedrock" and temperature=0
 
 # llm = init_chat_model(...)
-llm = init_chat_model(
-    model="mistral.ministral-3-8b-instruct",
-    model_provider="bedrock",
-    temperature=0,
+#llm = init_chat_model(
+#    model="mistral.ministral-3-8b-instruct",
+#    model_provider="bedrock",
+#    temperature=0,
+#)
+# create new llm model using Ollama instead of bedrock
+llm = ChatOllama(
+    model="llama3.1:8b",
+    temperature=0
 )
 # =====================================================================
 # 4. Create the ReAct Agent
@@ -78,8 +85,9 @@ def run_exercise():
     # For each chunk, print the last message's type and content.
     print("=== e040: Your First Bedrock Agent ===")
     # YOUR CODE HERE
-    for chunk in agent.stream(query, stream_mode="values"):
-        print(chunk)
+    result = agent.invoke(query)
+    
+    print(result["messages"][-1].content)
 
 if __name__ == "__main__":
     run_exercise()
