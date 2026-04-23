@@ -4,7 +4,7 @@ from typing import Annotated, TypedDict
 from langchain_aws import ChatBedrock
 from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.graph import StateGraph, END
-from langgraph.checkpoint.sqlite import SqliteSaver
+#from langgraph.checkpoint.sqlite import SqliteSaver
 
 # =====================================================================
 # 1. State Definition
@@ -24,9 +24,11 @@ def pii_middleware_node(state: AgentState):
     """
     # YOUR CODE HERE
     content = state["messages"][-1].content
-    if re.search(r'\\b(?:\\d[ -]*?){13,16}\\b', content):
-        content = re.sub(r'\\b(?:\\d[ -]*?){13,16}\\b', '[REDACTED]', content)
-    return {"messages": content}
+    if re.search(r'\b(?:\d[ -]*?){13,16}\b', content):
+        content = re.sub(r'\b(?:\d[ -]*?){13,16}\b', '[REDACTED]', content)
+
+    # wrap content in a HumanMessage in order to pass it correctly through graph
+    return {"messages": [content]}
 
 # =====================================================================
 # 3. Model Node
@@ -36,8 +38,9 @@ def model_node(state: AgentState):
     # Then invoke the model with the current messages
     # Return {"messages": [response]}
 
-    client = ChatBedrock(model="us.anthropic.claude-3-5-sonnet-20240620-v1:0")
-    return {"messages": client(state["messages"])}
+    client = ChatBedrock(model="mistral.mistral-7b-instruct-v0:2")
+    msg = state["messages"]
+    return {"messages": [client.invoke(msg)]}
 # =====================================================================
 # 4. Build the Graph
 # =====================================================================
@@ -54,6 +57,7 @@ def build_graph():
     graph.add_node("model", model_node)
     graph.add_edge("middleware", "model")
     graph.add_edge("model", END)
+    graph.set_entry_point("middleware")
     return graph
 
 # =====================================================================
@@ -69,7 +73,11 @@ def run_exercise():
     print("\n--- Session 1 ---")
     s1 = {"messages": [HumanMessage(content="My name is Alex. My card is 4111-2222-3333-4444.")]}
     # TODO: Invoke the graph (not stream) with session 1 input and config
-    graph.invoke(s1, config)
+
+    # compile graph into an app for invoking
+    app = graph.compile()
+
+    app.invoke(s1, config)
 
 
     # Session 2: Ask a follow-up (without re-passing any context)
@@ -78,6 +86,6 @@ def run_exercise():
     # TODO: Invoke the graph (not stream) with session 2 input and SAME config
     # Print the final AI message
 
-    print(graph.invoke(s2, config)["messages"][-1].content)
+    print(app.invoke(s2, config)["messages"][-1].content)
 if __name__ == "__main__":
     run_exercise()

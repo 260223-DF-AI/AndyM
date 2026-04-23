@@ -61,7 +61,13 @@ llm = init_chat_model(
 # professional financial-analyst system_prompt (via state_modifier).
 
 # agent = create_react_agent(...)
-agent = create_agent(model=llm, tools=[get_stock_sentiment], system_prompt="You are a financial analyst, use tools to return sentiments on stock analysis and give reasons before acting(ReAct)")
+# changed system prompt to save tokens
+system_prompt = """You are a financial analyst.
+- Use the tool if needed
+- Respond in 1–2 sentences max
+- Do NOT explain your reasoning steps
+"""
+agent = create_agent(model=llm, tools=[get_stock_sentiment], system_prompt=system_prompt)
 # =====================================================================
 # 5. Stream the Agent Response
 # =====================================================================
