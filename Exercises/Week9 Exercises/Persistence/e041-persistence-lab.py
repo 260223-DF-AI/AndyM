@@ -4,7 +4,8 @@ from typing import Annotated, TypedDict
 from langchain_aws import ChatBedrock
 from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.graph import StateGraph, END
-#from langgraph.checkpoint.sqlite import SqliteSaver
+from langgraph.checkpoint.sqlite import SqliteSaver
+from langchain_ollama import ChatOllama
 
 # =====================================================================
 # 1. State Definition
@@ -38,7 +39,8 @@ def model_node(state: AgentState):
     # Then invoke the model with the current messages
     # Return {"messages": [response]}
 
-    client = ChatBedrock(model="mistral.mistral-7b-instruct-v0:2")
+    #client = ChatBedrock(model="mistral.mistral-7b-instruct-v0:2")
+    client = ChatOllama(model="llama3.1:8b")
     msg = state["messages"]
     return {"messages": [client.invoke(msg)]}
 # =====================================================================
@@ -58,7 +60,7 @@ def build_graph():
     graph.add_edge("middleware", "model")
     graph.add_edge("model", END)
     graph.set_entry_point("middleware")
-    return graph
+    return graph.compile(checkpointer=SqliteSaver(sqlite3.connect(":memory:", check_same_thread=False)))
 
 # =====================================================================
 # 5. Execution
@@ -75,9 +77,9 @@ def run_exercise():
     # TODO: Invoke the graph (not stream) with session 1 input and config
 
     # compile graph into an app for invoking
-    app = graph.compile()
+    #app = graph.compile()
 
-    app.invoke(s1, config)
+    graph.invoke(s1, config)
 
 
     # Session 2: Ask a follow-up (without re-passing any context)
@@ -86,6 +88,6 @@ def run_exercise():
     # TODO: Invoke the graph (not stream) with session 2 input and SAME config
     # Print the final AI message
 
-    print(app.invoke(s2, config)["messages"][-1].content)
+    print(graph.invoke(s2, config)["messages"][-1].content)
 if __name__ == "__main__":
     run_exercise()
